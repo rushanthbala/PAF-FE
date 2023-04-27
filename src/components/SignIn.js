@@ -15,6 +15,7 @@ import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import GoogleAuth from "./googleAuth";
+import FaceBookAuth from "./fbauth";
 
 function SignIn() {
   const [resData, setResData] = useState(null);
@@ -100,10 +101,14 @@ const handleAuth =(data)=>{
   postSignInInfoWithGoogle(data)
   // console.log(data,"from sign in");
 }
+const handleAuthFB =()=>{
+  console.log("empty");
+}
   return (
     <Container fluid className={styles.container}>
       <ToastContainer />
 <GoogleAuth  handleAuth={handleAuth}/>
+<FaceBookAuth handleAuth={handleAuthFB}/>
       <Formik
         validationSchema={schema}
         initialValues={{
